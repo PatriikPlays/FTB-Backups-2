@@ -759,8 +759,8 @@ public class BackupHandler {
         Duration duration = Duration.ofNanos(nano);
 
         long mins = duration.toMinutes();
-        long seconds = duration.minusMinutes(mins).toSeconds();
-        long mili = duration.minusSeconds(seconds).toMillis();
+        long seconds = duration.toSeconds() % 60;
+        long mili = duration.toMillis() % 1000;
 
         return mins + "m, " + seconds + "s, " + mili + "ms";
     }
